@@ -8,19 +8,22 @@ int main()
     char charGuess;
     int looper = 0;
     string guess = "Luck is a farce";
-    string hangman = new char[guess.size()];
+    string hangman(guess.size(), ' ');
+    cout << guess.size() << endl;
+    cout << hangman.size() << endl;
     cout << "You can get 5 incorrect char guesses to get the string! Good luck!" << endl;
     while(hangman != guess)
     {
       looper = 0;
       cout << "Enter your letter: ";
       cin >> charGuess;
-      cout << charGuess << endl;
       for(int i = 0; i < guess.size(); i++)
       {
-        if(guess[i] == charGuess)
+        if(guess.at(i) == charGuess)
         {
-          hangman[i] = charGuess;
+          
+          hangman.replace(i, 1, 1, charGuess);
+          cout << hangman << endl;
           looper++;
         } 
       }
